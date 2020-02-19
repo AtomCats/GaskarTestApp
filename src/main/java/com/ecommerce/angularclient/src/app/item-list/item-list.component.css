@@ -1,0 +1,20 @@
+@import url(https://fonts.googleapis.com/css?family=Roboto:400,500,700,300,100);
+
+/*** Table Styles **/
+
+ul.table-fill {
+  display: inline-block;
+  list-style: none;
+  padding: 25px;
+}
+
+img {
+  border-radius:50%;
+  width: 300px;
+  height: 300px;
+}
+
+div.items_content.table-fill. {
+  width: 5px;
+  border-radius: 25px;
+}
