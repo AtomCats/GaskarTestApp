@@ -4,6 +4,7 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 
 import javax.persistence.*;
+import java.util.ArrayList;
 import java.util.List;
 
 @Entity
@@ -19,5 +20,10 @@ public class Tag {
 
     @ManyToMany(mappedBy = "tags")
     @Transient
-    List<Book> books;
+    List<Book> books = new ArrayList<>();
+
+    public Tag(String name, List<Book> books) {
+        this.name = name;
+        this.books = books;
+    }
 }

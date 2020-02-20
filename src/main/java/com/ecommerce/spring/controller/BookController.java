@@ -28,8 +28,8 @@ public class BookController {
         return bookService.saveBook(book);
     }
 
-    @GetMapping(value = "/all")
-    public List<Book> findAllByTag(@RequestBody FindForm findForm) {
+    @PostMapping(value = "/all")
+    public List<Book> findAllByTagoOrPublisher(@RequestBody FindForm findForm) {
         return Optional.ofNullable(findForm.getPublisher())
                 .map(publisher -> bookService.findAllByPublisher(publisher))
                 .orElse(bookService.findAllByTag(findForm.getTag()));

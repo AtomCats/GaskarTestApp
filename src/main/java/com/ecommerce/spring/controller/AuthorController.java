@@ -26,8 +26,8 @@ public class AuthorController {
         return authorService.saveAuthor(author);
     }
 
-    @GetMapping(value = "/all")
-    public List<Author> findAllByTag(@RequestBody FindForm findForm) {
+    @PostMapping(value = "/all")
+    public List<Author> findAllByTagoOrPublisher(@RequestBody FindForm findForm) {
         return Optional.ofNullable(findForm.getPublisher())
                 .map(publisher -> authorService.findAuthorsByPublisher(publisher))
                 .orElse(authorService.findAuthorsByTag(findForm.getTag()));

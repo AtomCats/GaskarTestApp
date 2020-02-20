@@ -1,7 +1,7 @@
  section.container {
   font-family: 'DejaVu Sans', Arial, Helvetica, sans-serif;
-  background: rgba(0, 0, 0, 1);
-  color: white;
+  background: darkorchid;
+  color: White;
    padding: 0;
    border-radius: 3px;
    transition: margin-left .5s;
@@ -128,6 +128,8 @@
  #main {
    transition: margin-left .5s;
    padding: 20px;
+   background: white;
+   color: black;
  }
 
 

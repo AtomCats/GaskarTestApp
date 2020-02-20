@@ -8,6 +8,7 @@
         <outputRelativeToContentRoot value="true" />
         <module name="Gaskar-test-app" />
         <module name="Springangularapp" />
+        <module name="GaskarTestApp" />
       </profile>
     </annotationProcessing>
   </component>

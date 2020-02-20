@@ -2,88 +2,102 @@
   <h2>{{title}}</h2>
 
 
-  <nav class="navbar navbar-expand-sm bg-dark navbar-dark">
-    <button class="opensidenav" (click)="openNav()">
-      <i class="fa fa-bars"></i>
-    </button>
-  </nav>
+  <div class="navigation" >
 
-  <div id="sidenav" class="sidenav">
-    <div class="sidenav_btns">
-      <button class="filter_btn nav_btn" (click)="openFilter()" >
-        <i class="fa fa-filter"></i>
-      </button>
-      <button class="closesidenav nav_btn" (click)="closeNav()">
-        <i class="fa fa-window-close"></i>
-      </button>
-    </div>
-    <!-- Links -->
-    <ul class="navbar-nav">
+    <div class="menu">
 
-      <li class="dropdown">
+      <button class="authors-btn menu-btn" (click)="collapse('authors-menu-content')">Authors</button>
 
-        <button class="usersbtn menubtn" (click)="collapse('users-content')">Users
-          <i class="fa fa-caret-down" id="menuicon"></i>
-        </button>
-
-        <div class="dropdown-content" id="users-content">
-          <a routerLink="users" class="submenu_btn" role="button" routerLinkActive="active">Show</a>
-          <a routerLink="adduser" class="submenu_btn" role="button" routerLinkActive="active">Add</a>
-        </div>
-
-      </li>
-
-      <li class="dropdown">
-
-        <button class="usersbtn menubtn" (click)="collapse('furniture-content')">Мягкая мебель
-          <i class="fa fa-caret-down"></i>
-        </button>
-
-        <div class="dropdown-content" id="furniture-content">
-          <a routerLink="users" class="submenu_btn" role="button" routerLinkActive="active">Диваны</a>
-          <a routerLink="adduser" class="submenu_btn" role="button" routerLinkActive="active">Кровати</a>
-          <a routerLink="adduser" class="submenu_btn" role="button" routerLinkActive="active">Кресла</a>
-        </div>
-
-      </li>
-
-      <li class="dropdown">
-
-        <button class="usersbtn menubtn" (click)="collapse('cabinet-furniture-content')">Корпусная мебель
-          <i class="fa fa-caret-down"></i>
-        </button>
-
-        <div class="dropdown-content" id="cabinet-furniture-content">
-          <a routerLink="users" class="submenu_btn" role="button" routerLinkActive="active">Стенки</a>
-          <a routerLink="adduser" class="submenu_btn" role="button" routerLinkActive="active">Кухни</a>
-          <a routerLink="adduser" class="submenu_btn" role="button" routerLinkActive="active">Шкафы</a>
-        </div>
-
-      </li>
-
-    </ul>
-
-  </div>
-
-  <div id="sidefilter" class="sidefilter">
-    <div class="sidenav_btns">
-      <button class="backtomenu " (click)="closeFilter()">
-        <i class="fa fa-arrow-circle-left"></i>
-      </button>
+      <div class="dropdown-content" id="authors-menu-content">
+        <a routerLink="authors" class="submenu_btn" role="button" routerLinkActive="active">Show all</a>
+        <a routerLink="addAuthor" class="submenu_btn" role="button" routerLinkActive="active">Add</a>
+      </div>
     </div>
 
-    <ul class="sidefiltercontext">
-      <li class="dropdown">
-        <button class="filterbtn menubtn" (click)="collapse('filter_manufacturer_content')">Производитель
-          <i class="fa fa-caret-down"></i>
-        </button>
-        <div class="dropdown-content" id="filter_manufacturer_content">
-          <a routerLink="users" class="submenu_btn" role="button" routerLinkActive="active">Стенки</a>
-        </div>
-      </li>
-    </ul>
+    <div class="menu">
+      <button class="books-btn menu-btn" (click)="collapse('books-menu-content')">Books</button>
+
+      <div class="dropdown-content" id="books-menu-content">
+        <a routerLink="books" class="submenu_btn" role="button" routerLinkActive="active">Show all</a>
+        <a routerLink="addBook" class="submenu_btn" role="button" routerLinkActive="active">Add</a>
+      </div>
+    </div>
+
+    <div class="menu">
+      <button class="publishers-btn menu-btn" (click)="collapse('publishers-menu-content')">Publishers</button>
+
+      <div class="dropdown-content" id="publishers-menu-content">
+        <a routerLink="publishers" class="submenu_btn" role="button" routerLinkActive="active">Show all</a>
+        <a routerLink="addPublisher" class="submenu_btn" role="button" routerLinkActive="active">Add</a>
+      </div>
+    </div>
+
+    <div class="menu">
+      <button class="tags-btn menu-btn" (click)="collapse('tags-menu-content')">Tags</button>
+
+      <div class="dropdown-content" id="tags-menu-content">
+        <a routerLink="tags" class="submenu_btn" role="button" routerLinkActive="active">Show all</a>
+        <a routerLink="addTag" class="submenu_btn" role="button" routerLinkActive="active">Add</a>
+      </div>
+    </div>
   </div>
 
+<!--  <div id="sidenav" class="sidenav">-->
+<!--    <div class="sidenav_btns">-->
+<!--      <button class="filter_btn nav_btn" (click)="openFilter()" >-->
+<!--        <i class="fa fa-filter"></i>-->
+<!--      </button>-->
+<!--      <button class="closesidenav nav_btn" (click)="closeNav()">-->
+<!--        <i class="fa fa-window-close"></i>-->
+<!--      </button>-->
+<!--    </div>-->
+<!--    &lt;!&ndash; Links &ndash;&gt;-->
+<!--    <ul class="navbar-nav">-->
+
+<!--      <li class="dropdown">-->
+
+<!--        <button class="usersbtn menubtn" (click)="collapse('users-content')">Users-->
+<!--          <i class="fa fa-caret-down" id="menuicon"></i>-->
+<!--        </button>-->
+
+<!--        <div class="dropdown-content" id="users-content">-->
+<!--          <a routerLink="users" class="submenu_btn" role="button" routerLinkActive="active">Show</a>-->
+<!--          <a routerLink="adduser" class="submenu_btn" role="button" routerLinkActive="active">Add</a>-->
+<!--        </div>-->
+
+<!--      </li>-->
+
+<!--      <li class="dropdown">-->
+
+<!--        <button class="usersbtn menubtn" (click)="collapse('furniture-content')">Мягкая мебель-->
+<!--          <i class="fa fa-caret-down"></i>-->
+<!--        </button>-->
+
+<!--        <div class="dropdown-content" id="furniture-content">-->
+<!--          <a routerLink="users" class="submenu_btn" role="button" routerLinkActive="active">Диваны</a>-->
+<!--          <a routerLink="adduser" class="submenu_btn" role="button" routerLinkActive="active">Кровати</a>-->
+<!--          <a routerLink="adduser" class="submenu_btn" role="button" routerLinkActive="active">Кресла</a>-->
+<!--        </div>-->
+
+<!--      </li>-->
+
+<!--      <li class="dropdown">-->
+
+<!--        <button class="usersbtn menubtn" (click)="collapse('cabinet-furniture-content')">Корпусная мебель-->
+<!--          <i class="fa fa-caret-down"></i>-->
+<!--        </button>-->
+
+<!--        <div class="dropdown-content" id="cabinet-furniture-content">-->
+<!--          <a routerLink="users" class="submenu_btn" role="button" routerLinkActive="active">Стенки</a>-->
+<!--          <a routerLink="adduser" class="submenu_btn" role="button" routerLinkActive="active">Кухни</a>-->
+<!--          <a routerLink="adduser" class="submenu_btn" role="button" routerLinkActive="active">Шкафы</a>-->
+<!--        </div>-->
+
+<!--      </li>-->
+
+<!--    </ul>-->
+
+<!--  </div>-->
 </section>
 <div id="main">
   <section>

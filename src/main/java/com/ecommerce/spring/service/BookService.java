@@ -29,6 +29,6 @@ public class BookService {
     }
 
     public List<Book> findAllByPublisher(String publisherName) {
-        return bookRepository.finAllByPublisher_Name(publisherName);
+        return bookRepository.findAllByPublisher_Name(publisherName);
     }
 }

@@ -10,7 +10,7 @@ export class AppComponent {
   acc: HTMLElement;
 
   constructor() {
-    this.title = 'Admin tool';
+    this.title = 'Gaskar test application';
   }
 
   openNav() {

@@ -4,6 +4,7 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 
 import javax.persistence.*;
+import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 
@@ -24,6 +25,21 @@ public class Author {
 
     private Date birthDate;
 
-    @ManyToMany(mappedBy = "books")
-    private List<Book> books;
+    @ManyToMany(mappedBy = "authors")
+    private List<Book> books = new ArrayList<>();
+
+    public Author(String name, String surname, String middleName, Date birthDate, List<Book> books) {
+        this.name = name;
+        this.surname = surname;
+        this.middleName = middleName;
+        this.birthDate = birthDate;
+        this.books = books;
+    }
+
+    public Author(String name, String surname, String middleName, Date birthDate) {
+        this.name = name;
+        this.surname = surname;
+        this.middleName = middleName;
+        this.birthDate = birthDate;
+    }
 }

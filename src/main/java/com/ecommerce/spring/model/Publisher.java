@@ -4,6 +4,7 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 
 import javax.persistence.*;
+import java.util.ArrayList;
 import java.util.List;
 
 @Entity
@@ -19,5 +20,14 @@ public class Publisher {
 
     @OneToMany(mappedBy = "book")
     @Transient
-    private List<Book> books;
+    private List<Book> books = new ArrayList<>();
+
+    public Publisher(String name, List<Book> books) {
+        this.name = name;
+        this.books = books;
+    }
+
+    public void setBooks(List<Book> books) {
+        this.books.addAll(books);
+    }
 }
