@@ -3,6 +3,7 @@ import {User} from "../model/user";
 import {UserService} from "../service/user-service.service";
 import {Author} from "../model/author";
 import {AuthorServiceService} from "../service/author-service.service";
+import {catchError, map} from "rxjs/operators";
 
 @Component({
   selector: 'app-authors-list-component',
@@ -17,6 +18,10 @@ export class AuthorsListComponentComponent implements OnInit {
   }
 
   ngOnInit() {
-    this.authorService.findAll().subscribe(data => this.authors = data);
+     // this.authorService.findAll().subscribe((data: Author[]) => this.authors = data);
+    // map(categories => categories.map(categoryJson => new CategoryModel(categoryJson))),
+    //   catchError(this.handleError('getProduct', []))
+     this.authorService.findAll().subscribe(data => this.authors = data);
+    // //   .toPromise()
   }
 }

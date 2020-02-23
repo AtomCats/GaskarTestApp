@@ -1,5 +1,8 @@
 package com.ecommerce.spring.model;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
+import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.fasterxml.jackson.annotation.JsonManagedReference;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
@@ -19,7 +22,8 @@ public class Tag {
     private String name;
 
     @ManyToMany(mappedBy = "tags")
-    @Transient
+    @JsonIgnore
+    @JsonBackReference
     List<Book> books = new ArrayList<>();
 
     public Tag(String name, List<Book> books) {

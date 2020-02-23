@@ -1,5 +1,8 @@
 package com.ecommerce.spring.model;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
+import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.fasterxml.jackson.annotation.JsonManagedReference;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
@@ -18,14 +21,15 @@ public class Publisher {
 
     private String name;
 
-    @OneToMany(mappedBy = "book")
-    @Transient
+    @OneToMany(mappedBy = "publisher")
+    @JsonBackReference
     private List<Book> books = new ArrayList<>();
 
     public Publisher(String name, List<Book> books) {
         this.name = name;
         this.books = books;
     }
+
 
     public void setBooks(List<Book> books) {
         this.books.addAll(books);

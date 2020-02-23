@@ -3,6 +3,7 @@ import {HttpClient} from "@angular/common/http";
 import {Observable} from "rxjs";
 import {Author} from "../model/author";
 import {FindForm} from "../model/find-form";
+import {map} from "rxjs/operators";
 
 @Injectable({
   providedIn: 'root'
@@ -15,8 +16,9 @@ export class AuthorServiceService {
     this.authorsUrl = 'http://localhost:8080/authors';
   }
 
-  public findAll() {
-    return this.http.get<Author[]>('http://localhost:8080/authors/all');
+  public findAll(): Observable<Author[]> {
+    return this.http.get<Author[]>('http://localhost:8080/authors/all')
+      .pipe(map(authors => authors.map(authorJson => new Author(authorJson))));
   }
 
   public findAllByTagOrPublisher(findForm: FindForm) {

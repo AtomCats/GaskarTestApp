@@ -1,5 +1,7 @@
 package com.ecommerce.spring.model;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
+import com.fasterxml.jackson.annotation.JsonManagedReference;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
@@ -20,17 +22,20 @@ public class Book {
 
     private long releaseYear;
 
-    @ManyToOne
-    @JoinColumn(name="publisher_id", nullable=false)
-    private Publisher publisher;
+    @ManyToOne(cascade = CascadeType.MERGE)
+    @JoinColumn(name="publisher_id")
+    @JsonManagedReference
+    private Publisher publisher = new Publisher();
 
-    @ManyToMany(cascade = CascadeType.ALL)
+    @ManyToMany(cascade = CascadeType.MERGE)
+    @JsonManagedReference
     @JoinTable(name = "authors_books",
             joinColumns = @JoinColumn(name = "book_id", referencedColumnName = "id"),
             inverseJoinColumns = @JoinColumn(name = "authors_id", referencedColumnName = "id"))
     private List<Author> authors = new ArrayList<>();
 
-    @ManyToMany(cascade = CascadeType.ALL)
+    @ManyToMany(cascade = CascadeType.MERGE)
+    @JsonManagedReference
     @JoinTable(name = "books_tags",
             joinColumns = @JoinColumn(name = "book_id", referencedColumnName = "id"),
             inverseJoinColumns = @JoinColumn(name = "tags_id", referencedColumnName = "id"))

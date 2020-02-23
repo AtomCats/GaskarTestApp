@@ -26,12 +26,13 @@ public class Application {
                            ItemCategoryRepository itemCategoryRepository, AuthorRepository authorRepository, BookRepository bookRepository,
                            PublisherRepository publisherRepository) {
         return args -> {
-            Publisher publisher = publisherRepository.save(new Publisher("Publisher", new ArrayList<Book>()));
-            Book book = bookRepository.save(new Book("Some intresting book", 2000, publisher, new ArrayList<Author>(), new ArrayList<Tag>()));
-            Author author = authorRepository.save(new Author("Anton", "Eremin", "Alexandrovich", Date.from(Instant.now()), new ArrayList<Book>()));
-            publisher.setBooks(Arrays.asList(book));
-            Publisher publisher1 = publisherRepository.save(publisher);
-            System.out.println(publisher1.getBooks());
+            Publisher publisher = publisherRepository.save(new Publisher("Publisher", null));
+            Book book = bookRepository.save(new Book("Some intresting book", 2000, publisher, null,  null));
+            Author author = authorRepository.save(new Author("Anton", "Eremin", "Alexandrovich", Date.from(Instant.now()),  null));
+            book.setAuthors(Arrays.asList(author));
+            author.setBooks(Arrays.asList(book));
+            bookRepository.save(book);
+            authorRepository.save(author);
 //            book.setAuthors(Arrays.asList(author));
 //            author.setBooks(Arrays.asList(book));
 //            bookRepository.save(book);
